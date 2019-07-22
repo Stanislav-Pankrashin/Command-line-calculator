@@ -112,8 +112,6 @@ export function calculateExpression(exp: string): number {
 
    let postFix: string = calc.refactor(exp);
 
-   console.log(postFix);
-
    let result: number = calc.calculate(postFix);
 
    return result;
