@@ -22,6 +22,8 @@ class Calculator {
             case "*":
                result = a * b;
                break;
+            default:
+               throw new Error(`${operator} is not a valid operand`);
          }
 
          return result;
@@ -33,13 +35,13 @@ class Calculator {
             stack.push(parseFloat(char));
          }
          else {
-            let a: number = stack.pop();
-            let b: number = stack.pop();
+            let a: number | undefined = stack.pop();
+            let b: number | undefined = stack.pop();
             let result: number = evaluate(b, a, char);
             stack.push(result);
          }
       }
-      return stack.pop();
+      return stack.pop() as number;
    };
 
    public refactor(exp: string): string {
